@@ -16,7 +16,7 @@ const controllerGetByIdBook = async (req, res) => {
 const controllerPostBook = async (req, res) => {
     const {title, author_id} = req.body;
 
-    if(!isValidBook(title, author_id)) res.status(400).json({message: 'Dados inválidos'})
+    if(!isValidBook(title, author_id)) return res.status(400).json({message: 'Dados inválidos'})
 
     await crateBook(title, author_id);
 
